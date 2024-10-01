@@ -1,4 +1,3 @@
-# i have finished these 
 #  task one 
 #  question 1 
 for i in range(10):
@@ -147,4 +146,17 @@ print ((hours >5) or (prepared ==("yes")))
 sunny = input("Is it sunny today: ")
 weekend = input("Is it the weekend: ")
 print ((sunny == ("yes") and weekend == ("yes")) or (sunny == ("no") and weekend == ("no")))
+#advanced instructions 
+#number guessing game
+import random
+target_number = random.randint(0,100)
+guess = int(input("Pick a number between 0 and 100: "))
+while guess > target_number:
+    print ("too high")
+    guess = int(input("Pick a lower number: "))
+while guess < target_number:
+    print ("too low")
+    guess = int(input("Pick a higher number: "))
+while guess == target_number:
+    print ("well done! you got the right number")
 
