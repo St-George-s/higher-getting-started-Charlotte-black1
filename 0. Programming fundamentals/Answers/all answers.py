@@ -211,3 +211,186 @@ numbers = [2, 4, 6, 8, 10]
 for number in numbers:
     total = (total)+(number)
 print (total) 
+
+#question 6 
+numbers = [12, 45, 2, 9, 50, 33]
+max = numbers[0]
+for number in numbers:
+    if number > max:
+        max = number
+print (max) 
+
+#question 7 
+numbers = [18, 4, 22, 9, 31, 15]
+min = numbers[0]
+for number in numbers:
+    if number < min:
+        min = number
+print (min) 
+
+#question 8 
+numbers = [3, 6, 9, 12, 15]
+numbers.reverse()
+print (numbers)
+
+#question 9 
+numbers = [7, 14, 21, 28, 35]
+for number in numbers:
+    print (number == 21)
+
+#question 10
+first_array = [1, 2, 3]
+second_array = [4, 5, 6]
+print (first_array + second_array)
+
+#question 11 
+numbers = [5, 3, 8, 1, 2]
+numbers.sort()
+print (numbers)
+
+#question 12
+numbers = [3, 3, 3, 3, 3]
+print (numbers == numbers)
+
+#question 13 
+numbers = [10, 20, 30, 40, 50]
+for index in range(len(numbers)):
+    number = numbers[index]*2 
+    print (number)
+
+#question 14 
+numbers = [8, 6, 7, 5, 3, 0, 9]
+numbers.remove (int(3))
+print (numbers)
+
+#question 15
+#option 1
+numbers = [12, 24, 35, 24, 88, 120, 155]
+new_numbers = []
+for index in range(len(numbers)):
+    if numbers[index] != 24:
+     new_numbers.append(numbers[index])
+numbers = new_numbers
+print (numbers)
+
+#option 2
+numbers = [12, 24, 35, 24, 88, 120, 155]
+length = len(numbers)
+index = 0
+while index < length:
+   if numbers[index] == 24:
+    numbers.remove(24)
+    length = length -1
+   index = index+1
+print(numbers)
+
+#question 16 
+numbers = [5, 12, 7, 5, 5, 7]
+print (numbers.count (5))
+
+#question 17 
+numbers = [9, 3, 6, 1, 7]
+for index in range(len(numbers)):
+    if numbers[index] == 6:
+        print(index)
+
+#question 18 
+numbers = [2, 4, 6, 8, 10]
+total = 0
+for index in range(len(numbers)):
+    total = total + numbers[index]
+print (total)
+
+#question 19 
+numbers = [15, 22, 13, 14, 22, 45]
+for index in range(len(numbers)):
+    if numbers[index] == 22:
+        print (index)  
+
+#question 20
+names = ["Alice", "Bob", "charlie"]
+scores = [85, 92, 78]
+for index in range(len(names)):
+    print (names[index], scores[index])
+
+#travel information task 
+def get_destination():
+    return input ("where would you like to go: ")
+def get_people():
+    return input ("how many people will come with you: ")
+def get_travel():
+    return input ("how would you like to travel: ")
+def show_information(destination, people, travel):
+    print (f"you are going to {destination} with {people} other people and will travel by {travel}")
+
+keep_asking = ("yes")
+while keep_asking != ("END"):
+    destination = get_destination()
+    people = get_people()
+    travel = get_travel()
+
+    show_information(destination, people, travel)
+    keep_asking = input ("would you like book another holiday(type END if no): ")
+
+# question 1 
+name = input ("what is your name: ")
+
+#question 2
+age = int(input("how old are you: "))
+while age <10 or age >30 :
+    print ("age invalid, try again: ")
+    age = int(input("how old are you: "))
+
+#question 3 
+with open("0. Programming fundamentals/Answers/people.txt", "a") as file:
+    file.write(str(name))
+    file.write(str(age))
+    file.close()
+
+#parallel arrays
+names = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Harry", "Ivy", "Jack", "Katie", "Liam", "Mia", "Noah", "Olivia", "Peter", "Quinn", "Rachel", "Sam", "Tara", "Uma", "Victor", "Wendy", "Xavier", "Yara", "Zach", "Sophie", "Thomas", "Natalie", "Ellie", "Lucas", "Isabella", "Henry", "Amelia", "Leo", "Ella", "Oscar", "Charlotte"]
+ages = [25, 30, 22, 35, 28, 40, 33, 29, 26, 31, 27, 34, 23, 36, 32, 39, 21, 38, 37, 24, 42, 45, 41, 43, 44, 46, 33, 29, 35, 26, 31, 30, 28, 36, 27, 32, 34, 23]
+colours = ["blue", "red", "green", "yellow", "orange", "purple", "blue", "red", "green", "yellow", "orange", "purple", "blue", "red", "green", "yellow", "orange", "purple", "blue", "red", "green", "yellow", "orange", "purple", "blue", "red", "green", "yellow", "orange", "purple", "blue", "red", "green", "yellow", "orange", "purple", "blue", "red"]
+
+between_30_and_40_names = []
+between_30_and_40_ages = []
+between_30_and_40_colours = []
+
+for index in range(len(ages)):
+    if ages[index]>30 and ages[index]<40:
+     between_30_and_40_names.append(names[index])
+     between_30_and_40_ages.append(ages[index])
+     between_30_and_40_colours.append(colours[index])
+
+print(between_30_and_40_names)
+print(between_30_and_40_ages)
+print(between_30_and_40_colours)
+    
+with open("0. Programming fundamentals/Answers/people_in_age_range.txt", "w") as file:
+   for index in range(len(names)):
+      file.write(str(names[index]))
+      file.write(",")
+      file.write(str(ages[index]))
+      file.write(",")
+      file.write(str(colours[index]))
+      file.write(str(" "))
+      file.close 
+
+#player record programe
+class Player:
+  def __init__(self, uniqueID, score, minutes, speed, strength, agility):
+    self.uniqueID: str = uniqueID
+    self.score: int = score
+    self.minutes: float = minutes
+    self.speed: int = speed
+    self.strength: int = strength
+    self.agility: int = agility
+
+player_one = Player ("charlotte10", 100, 4.21, 62, 45, 97)
+
+print (player_one.uniqueID, player_one.score, player_one.minutes, player_one.speed, player_one.strength, player_one.agility)
+
+#array manipulation program 
+numbers = [10, 20, 30, 40, 50]
+numbers[2] = 35
+print (numbers)
