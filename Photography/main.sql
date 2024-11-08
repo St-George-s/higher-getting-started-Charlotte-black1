@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 SELECT name
 FROM Clients
 WHERE client_id IN (
@@ -5,3 +6,6 @@ WHERE client_id IN (
     FROM Bookings
     WHERE event_type = 'Wedding'
 );
+=======
+DESCRIBE ALL TABLES;
+>>>>>>> 8b1286c (Added Photography DB)
