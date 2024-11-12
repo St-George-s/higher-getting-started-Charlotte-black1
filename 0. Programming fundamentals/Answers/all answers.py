@@ -49,7 +49,7 @@ for i in range(10):
     total_age += age
 print("The total age is: " + str(total_age))
 
-# question 10 - probably a shorter way to do this
+# question 10 
 for i in range (1,13):
     for j in range (1,13):
         print (str(j) + "x" + str(i) + "=" + str(j*i))
