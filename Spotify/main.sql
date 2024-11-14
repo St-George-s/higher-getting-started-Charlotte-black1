@@ -1,58 +1,22 @@
-DELETE FROM Tracks 
-WHERE track_id = 5;
+SELECT COUNT(*)
+FROM Tracks;
 
-DELETE FROM Artists 
-WHERE artist_id BETWEEN 20 AND 25;
+SELECT genre_id, COUNT(*)
+FROM Tracks 
+GROUP BY genre_id;
 
-INSERT INTO Genres (genre_id, genre_name) 
-VALUES (21, 'Jazz');
+SELECT genre_id, AVG(duration_ms)
+FROM Tracks 
+GROUP BY genre_id;
 
-INSERT INTO Tracks (track_id, track_name, artist_id, album_id, genre_id, duration_ms) 
-VALUES (54, 'New Track', 4, 4, 1, 180000), 
-       (55, 'Another Track', 5, 5, 2, 200000);
+select count(track_id)
+from tracks;
 
-UPDATE Albums 
-SET release_year = 2021 
-WHERE album_id = 3;
+select album_id, count(*)
+from tracks 
+group by genre_id;
 
-UPDATE Artists 
-SET artist_name = 'New Artist Name' 
-WHERE artist_id IN (1, 2, 3);
+select genre_id, max(duration_ms)
+from tracks 
+group by genre_id;
 
-select *
-from Tracks;
-
-select *
-from Artists;
-
-select *
-from Genres;
-
-select * 
-from Albums;
-
-
-delete from Albums 
-where album_id < 10;
-
-select * 
-from Albums;
-
-insert into Artists (artist_id, artist_name)
-values (34, 'Noah Kahan');
-
-select *
-from Artists;
-
-update Tracks 
-set duration_ms = 200000
-where track_id = 2;
-
-select * 
-from Tracks;
-
-delete from tracks 
-where duration_ms < 120000;
-
-select * 
-from Tracks;
