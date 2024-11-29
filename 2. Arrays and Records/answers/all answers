@@ -1,0 +1,58 @@
+#arrays and records 
+#question 3, 4 
+class Car:
+    def __init__(self, colour, make, year, price):
+        self.colour = colour
+        self.make = make 
+        self.year = year
+        self.price = price 
+
+cars = [
+    Car("yellow", "land rover", 2019, 20000),
+    Car("red", "tesla", 2023, 45000),
+    Car("blue", "honda", 2013, 8000)
+]
+
+for car in cars:
+    print(car.colour)
+
+#or, if want colour of jut one car:
+print(cars[1].colour)
+
+
+#arrays of records 
+#question 1 - bycicle shop data 
+class Bicycle:
+    def __init__(self, brand, model, frame_size, type, price, electric_assist):
+        self.brand = brand
+        self.model = model
+        self.frame_size = frame_size
+        self.type = type
+        self.price = price
+        self.electric_assist = electric_assist
+
+bicycles = [
+    Bicycle("Giant", "Escape 2", "20", "Hybrid", 450.00, False)
+    Bicycle("Trek",	"Marlin 5",	22	"Mountain",	370.00	False)
+]
+
+
+#question 2 - pet shop data 
+class Petfood:
+    def __init__(self, Brand, Animal, Type, Weight, Price, In_Stock):
+        self.brand = Brand
+        self.animal = Animal
+        self.type = Type
+        self.weight = Weight
+        self.price = Price
+        self.in_stock = In_Stock
+
+food = [
+    Food("Purina", "Cat", 1.5, 24.99, 10)
+    Food("Pedigree",	"Dog", 2.0,	18.99, 20)
+]
+
+class StockedPetFoods:
+    def __init__(self, food, in_stock):
+        self.food = food 
+        self.in_stock = in_stock

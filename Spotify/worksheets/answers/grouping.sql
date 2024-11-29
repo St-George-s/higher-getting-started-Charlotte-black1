@@ -20,3 +20,19 @@ select genre_id, max(duration_ms)
 from tracks 
 group by genre_id;
 
+select album_id, sum(duration_ms) as total_duration
+from tracks
+group by album_id;
+
+
+with sum(duration_ms) as total_duration
+select album,id max(total_duration) 
+from tracks;
+
+(not right will fix later)
+
+
+
+
+
+
