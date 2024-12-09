@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DESCRIBE ALL TABLES;
 
 SELECT Event.eventName as "Event Name", Shop.name as "Shop Name" , Event.maxAttendees as "Max Attendees", Event.eventDate as "Event Date"
@@ -27,3 +28,5 @@ From Shop, Booking, Event
 WHERE shop.shopID = Event.shopID 
 AND Event.eventID = Booking.eventID
 GROUP BY shop.name;
+=======
+>>>>>>> a8ee91c (Added Class Test)
