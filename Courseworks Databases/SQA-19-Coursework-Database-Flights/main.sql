@@ -1,1 +1,7 @@
 DESCRIBE ALL TABLES;
+
+
+
+
+
+

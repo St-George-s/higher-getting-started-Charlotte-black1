@@ -1,4 +1,6 @@
-DESCRIBE ALL TABLES;
 
-SELECT * 
-FROM Walker;
+
+
+
+
+

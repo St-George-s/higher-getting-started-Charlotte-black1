@@ -64,7 +64,7 @@ def count_sightings (sightings):
             count = 1
     print (f"there were {count} sightings on {day_to_count}")
        
-#This calls all the procedures form question 1.b)
+#This calls all the procedures from question 1
 sightings = read_from_file ()
 oldest_walker (sightings)
 get_dates (sightings)
