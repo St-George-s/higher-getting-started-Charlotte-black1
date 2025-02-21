@@ -1,6 +1,6 @@
 import csv
 
-class orders:
+class Order:
     def __init__(self, orderNum, date, email, option, cost, rating):
         self.orderNum = orderNum
         self.date = date
@@ -9,15 +9,48 @@ class orders:
         self.cost = cost 
         self.rating = rating
 
+#reads from file into array of records 
 def read_from_file ():
     orders = []
-    with open ("coursework /orders.txt", "r") as file:
+    with open ("2025 coursework /orders.txt", "r") as file:
         rows = csv.reader (file)
         for row in rows:
-            newRecord = orders(row[0], row[1], row[2], row[3], row[4], row[5])
-            orders.append(newRecord)
-        return orders
+            newRecord = Order(row[0], row[1], row[2], row[3], row[4], row[5])
+            orders.append (newRecord)
+    return orders
+    
+#following the refinements section for question 1.c) (need to fix this)
+#def find_first_rating (orders):
+    position = -1
+    index = 0
+    month_to_search = input("Please enter the first three letters of the month: ")
+    while position == -1 and index <= len(orders):
+        if orders[index].date == month_to_search and orders[index].rating == 5:
+            position = orders[index]
+        index = orders[index+1]  
+    print (position)
+    return position
 
+#def write_to_file (orders):
+    with open ("2025 coursework /winning customer.txt", "r") as file:
+        if position >= 0:
+            file.write (orders.orderNum, orders.email, orders.cost)
+        else:
+            file.write ("No winner")
+    file.close 
+
+def countOption (orders, option_to_find):
+    number_found = 0 
+    for option in orders:
+        if option == option_to_find:
+            number_found += 1
+    print (f"there were {number_found} orders that selected the {option_to_find} option")
+    
+
+orders = read_from_file ()
+#find_first_rating (orders)
+#write_to_file (orders)
+countOption (orders, "Collection")
 
 
 
