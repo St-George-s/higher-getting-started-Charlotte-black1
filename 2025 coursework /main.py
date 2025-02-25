@@ -19,38 +19,38 @@ def read_from_file ():
             orders.append (newRecord)
     return orders
     
-#following the refinements section for question 1.c) (need to fix this)
-#def find_first_rating (orders):
+#following the refinements section for question 1.c) 
+def find_first_rating (orders):
     position = -1
     index = 0
     month_to_search = input("Please enter the first three letters of the month: ")
-    while position == -1 and index <= len(orders):
+    while position == -1 and index < len(orders):
         if orders[index].date == month_to_search and orders[index].rating == 5:
-            position = orders[index]
-        index = orders[index+1]  
+            position = index
+        index = index =+ 1  
     print (position)
-    return position
+    return (position)
+   
+#def write_to_file (orders, position):
+#   with open ("2025 coursework /winning customer.txt", "r") as file:
+#        if position.orderNum> 0:
+#          file.write (orders.orderNum, orders.email, orders.cost)
+#        else:
+#         file.write ("No winner")
+#   file.close 
 
-#def write_to_file (orders):
-    with open ("2025 coursework /winning customer.txt", "r") as file:
-        if position >= 0:
-            file.write (orders.orderNum, orders.email, orders.cost)
-        else:
-            file.write ("No winner")
-    file.close 
-
-def countOption (orders, option_to_find):
-    number_found = 0 
-    for option in orders:
-        if option == option_to_find:
-            number_found += 1
-    print (f"there were {number_found} orders that selected the {option_to_find} option")
+#def countOption (orders, option_to_find):
+#    number_found = 0 
+#    for option in orders:
+#        if option == option_to_find:
+#            number_found += 1
+#    print (f"there were {number_found} orders that selected the {option_to_find} option")
     
 
 orders = read_from_file ()
-#find_first_rating (orders)
-#write_to_file (orders)
-countOption (orders, "Collection")
+find_first_rating (orders)
+#write_to_file (orders, find_first_rating(orders))
+#countOption (orders, "Collection")
 
 
 
