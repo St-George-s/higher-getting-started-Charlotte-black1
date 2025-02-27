@@ -24,20 +24,20 @@ def find_first_rating (orders):
     position = -1
     index = 0
     month_to_search = input("Please enter the first three letters of the month: ")
-    while position == -1 and index < len(orders):
-        if orders[index].date == month_to_search and orders[index].rating == 5:
+    while position == -1 and index > len(orders):
+        if orders[index].date[2:5] == month_to_search and orders[index].rating == 5:
             position = index
-        index = index =+ 1  
-    print (position)
-    return (position)
-   
+        index = index + 1  
+    print(position)
+    return(position)
+    
 #def write_to_file (orders, position):
-#   with open ("2025 coursework /winning customer.txt", "r") as file:
-#        if position.orderNum> 0:
-#          file.write (orders.orderNum, orders.email, orders.cost)
-#        else:
-#         file.write ("No winner")
-#   file.close 
+    with open ("2025 coursework /winning customer.txt", "r") as file:
+        if position >= 0:
+          file.write (orders.orderNum, orders.email, orders.cost)
+        else:
+            file.write ("No winner")
+    file.close 
 
 #def countOption (orders, option_to_find):
 #    number_found = 0 
@@ -49,7 +49,7 @@ def find_first_rating (orders):
 
 orders = read_from_file ()
 find_first_rating (orders)
-#write_to_file (orders, find_first_rating(orders))
+#write_to_file (orders, position)
 #countOption (orders, "Collection")
 
 
