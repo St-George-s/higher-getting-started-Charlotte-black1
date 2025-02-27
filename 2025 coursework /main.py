@@ -18,26 +18,34 @@ def read_from_file ():
             newRecord = Order(row[0], row[1], row[2], row[3], row[4], row[5])
             orders.append (newRecord)
     return orders
+
+orders = read_from_file ()
     
 #following the refinements section for question 1.c) 
 def find_first_rating (orders):
     position = -1
     index = 0
+    record = orders[index]
+    dateFromRecord = record.date
+    monthFromDate = dateFromRecord[3:6]
     month_to_search = input("Please enter the first three letters of the month: ")
-    while position == -1 and index > len(orders):
-        if orders[index].date[2:5] == month_to_search and orders[index].rating == 5:
+    while position == -1 and index < len(orders):
+        if monthFromDate == month_to_search and record.rating == 5:
             position = index
         index = index + 1  
+        record = orders[index] + 1 
     print(position)
     return(position)
+
+#position = find_first_rating (orders)
     
 #def write_to_file (orders, position):
-    with open ("2025 coursework /winning customer.txt", "r") as file:
-        if position >= 0:
-          file.write (orders.orderNum, orders.email, orders.cost)
-        else:
-            file.write ("No winner")
-    file.close 
+#    with open ("2025 coursework /winning customer.txt", "r") as file:
+#        if position >= 0:
+#          file.write (orders.orderNum, orders.email, orders.cost)
+#        else:
+#            file.write ("No winner")
+#    file.close 
 
 #def countOption (orders, option_to_find):
 #    number_found = 0 
@@ -47,7 +55,7 @@ def find_first_rating (orders):
 #    print (f"there were {number_found} orders that selected the {option_to_find} option")
     
 
-orders = read_from_file ()
+#orders = read_from_file ()
 find_first_rating (orders)
 #write_to_file (orders, position)
 #countOption (orders, "Collection")
