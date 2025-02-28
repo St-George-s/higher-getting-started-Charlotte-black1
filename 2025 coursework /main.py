@@ -19,23 +19,30 @@ def read_from_file ():
             orders.append (newRecord)
     return orders
 
-orders = read_from_file ()
-    
+orders = read_from_file () 
+
 #following the refinements section for question 1.c) 
 def find_first_rating (orders):
     position = -1
     index = 0
-    record = orders[index]
-    dateFromRecord = record.date
-    monthFromDate = dateFromRecord[3:6]
     month_to_search = input("Please enter the first three letters of the month: ")
     while position == -1 and index < len(orders):
-        if monthFromDate == month_to_search and record.rating == 5:
-            position = index
-        index = index + 1  
-        record = orders[index] + 1 
+        for order in orders:
+            monthFromDate = order.date[3:6]
+            ratingFromOrder = order.rating
+            if monthFromDate == month_to_search and ratingFromOrder == '5':
+                position = index
+            index = index + 1 
     print(position)
     return(position)
+
+
+
+find_first_rating(orders)
+
+#for Order in orders:
+#    monthFromDate = Order.date[3:6]
+#    print (monthFromDate)
 
 #position = find_first_rating (orders)
     
@@ -55,8 +62,7 @@ def find_first_rating (orders):
 #    print (f"there were {number_found} orders that selected the {option_to_find} option")
     
 
-#orders = read_from_file ()
-find_first_rating (orders)
+
 #write_to_file (orders, position)
 #countOption (orders, "Collection")
 
