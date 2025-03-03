@@ -32,7 +32,8 @@ def find_first_rating (orders):
             ratingFromOrder = order.rating
             if monthFromDate == month_to_search and ratingFromOrder == '5':
                 position = index
-            index = index + 1 
+            else:
+                index = index + 1 
     print(position)
     return(position)
 
