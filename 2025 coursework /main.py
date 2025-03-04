@@ -22,50 +22,44 @@ def read_from_file ():
 orders = read_from_file () 
 
 #following the refinements section for question 1.c) 
+#this finds the person who gave the first 5 star rating of the month 
 def find_first_rating (orders):
     position = -1
     index = 0
     month_to_search = input("Please enter the first three letters of the month: ")
     while position == -1 and index < len(orders):
-        for order in orders:
-            monthFromDate = order.date[3:6]
-            ratingFromOrder = order.rating
+            monthFromDate = orders[index].date[3:6]
+            ratingFromOrder = orders[index].rating
             if monthFromDate == month_to_search and ratingFromOrder == '5':
                 position = index
-            else:
-                index = index + 1 
-    print(position)
-    return(position)
+            index = index + 1 
+    return (position)
 
 
+# this writes the winner's details in a file 
+def write_to_file (orders, find_first_rating):
+    position = find_first_rating(orders)
+    with open ("2025 coursework /winning customer.txt", "w") as file:
+        if position >= 0:
+            file.write (f"{orders[position].orderNum}, ")
+            file.write (f"{orders[position].email}, ")
+            file.write (orders[position].cost)
+        else:
+            file.write ("No winner")
+    file.close 
 
-find_first_rating(orders)
+write_to_file (orders, find_first_rating)
 
-#for Order in orders:
-#    monthFromDate = Order.date[3:6]
-#    print (monthFromDate)
-
-#position = find_first_rating (orders)
+#this counts how many people chose "delivery" or "collection" options
+def countOption (orders, option_to_find):
+    number_found = 0 
+    for i in range (len(orders)):
+        if orders[i].option == option_to_find:
+            number_found += 1
+    print (f"there were {number_found} orders that selected the {option_to_find} option")
     
-#def write_to_file (orders, position):
-#    with open ("2025 coursework /winning customer.txt", "r") as file:
-#        if position >= 0:
-#          file.write (orders.orderNum, orders.email, orders.cost)
-#        else:
-#            file.write ("No winner")
-#    file.close 
-
-#def countOption (orders, option_to_find):
-#    number_found = 0 
-#    for option in orders:
-#        if option == option_to_find:
-#            number_found += 1
-#    print (f"there were {number_found} orders that selected the {option_to_find} option")
-    
-
-
-#write_to_file (orders, position)
-#countOption (orders, "Collection")
+countOption (orders, "Delivery")    
+countOption (orders, "Collection")
 
 
 
