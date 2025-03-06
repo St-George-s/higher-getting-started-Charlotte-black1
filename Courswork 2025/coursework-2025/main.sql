@@ -3,7 +3,7 @@ DESCRIBE ALL TABLES;
 SELECT (avg(valuation)) as average
 FROM Comic;
 
-SELECT comicTitle, issue, publisherName
+SELECT comicTitle, issue, publisherName, valuation
 FROM Comic, Publisher
 WHERE Comic.publisherID = Publisher.publisherID
 AND valuation >= 510.46;
@@ -21,12 +21,13 @@ ORDER BY Sum(valuation) DESC;
 
 
 -- Question 2. e) 
-SELECT comicTitle, issue, publisherName, valuation as [double Price]
+SELECT comicTitle, issue, publisherName, valuation*2 as [double Price]
 FROM Comic, Publisher, Series, CharacterInfo, ComicCharacter
-WHERE series.seriesName = "The OK Seven"
-AND characterName = "Starlordly"
+WHERE seriesName = "The OK Seven"
+AND CharacterInfo.characterName = "Starlordly"
 AND comic.publisherID = Publisher.publisherID
 AND Comic.SeriesID = Series.SeriesID
 AND CharacterInfo.characterID = ComicCharacter.characterID
+And ComicCharacter.comicID = Comic.comicID
 GROUP BY Comic.comicTitle;
 
