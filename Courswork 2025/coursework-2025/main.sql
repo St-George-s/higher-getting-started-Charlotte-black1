@@ -1,12 +1,12 @@
 DESCRIBE ALL TABLES;
 -- Question 2. c)
-SELECT (avg(valuation)) as average
-FROM Comic;
-
 SELECT comicTitle, issue, publisherName, valuation
 FROM Comic, Publisher
 WHERE Comic.publisherID = Publisher.publisherID
-AND valuation >= 510.46;
+AND valuation >= 300 + (
+    SELECT (avg(valuation)) 
+    FROM Comic)
+GROUP BY comicTitle;
 
 
 -- Question 2. d) 
